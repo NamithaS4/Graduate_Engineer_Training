@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nami</title>
+</head>
+<body style="background-color: beige;">
+    <h1 style="color: rgb(219, 143, 80); text-decoration: underline; text-align: center; background-color: azure;"> Welcome</h1>
+    <h1  id = "1203" style="text-align: center;"> Hello guys</h1>
+    <p style="text-align: center; color: brown;">Good Morning. Keep Smiling. Always be happy</p>
+    <button onclick="abc()"; style="text-align: center;color: chocolate;">Touch Me</button>
+    <script>
+        function abc() {
+            const p = prompt("Enter your name");
+            console.log(p);
+            document.querySelector('h1').innerText = "Welcome " + p;
+            document.getElementById('1203').style.color="crimson";
+        }
+    </script>
+</body>
+</html>
