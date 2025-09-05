@@ -1,0 +1,45 @@
+USE Employees;
+
+CREATE TABLE Employees (
+    ID INTEGER PRIMARY KEY, 
+    Name VARCHAR(50),
+	Dept VARCHAR(50),
+    Salary VARCHAR(40)
+);
+
+INSERT INTO Employees (ID, Name, Dept, Salary)
+VALUES (1, 'NB' , 'IT', 100000),
+(2, 'SD' ,  'IOT' , 100000),
+(3, 'Manjit' , 'AI' , 150000),
+(4, 'Sahil' , 'Marketing' , 150000),
+(5, 'Poojitha' , 'SDE' , 125000);
+
+ALTER TABLE Employees ADD Phone_No BIGINT;
+
+SELECT * FROM Employees;
+
+UPDATE Employees SET Phone_No = CASE
+	WHEN ID = 1 THEN 9844784849
+	WHEN ID = 2 THEN 6784658698
+	WHEN ID = 3 THEN 4957449749
+	WHEN ID = 4 THEN 9273648900
+	WHEN ID = 5 THEN 9473653850
+	ELSE 'NULL'
+END;
+
+ALTER TABLE Employee DROP COLUMN Salary;
+
+CREATE TABLE Salary (
+    S_ID INTEGER PRIMARY KEY, 
+    Salary VARCHAR(40),
+	FOREIGN KEY (S_ID) REFERENCES Employees(ID)
+);
+
+INSERT INTO Salary VALUES
+(1, '100000'),
+(2, '100000'),
+(3, '150000'),
+(4, '150000'),
+(5, '125000');
+
+SELECT * FROM Salary;
