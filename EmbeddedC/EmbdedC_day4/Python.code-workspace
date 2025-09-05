@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../../Python"
+		},
+		{
+			"name": "TestApp_day3",
+			"path": "../../../../Documents/PlatformIO/Projects/TestApp_day3"
+		},
+		{
+			"name": "EmbdedC_day4",
+			"path": "."
+		}
+	],
+	"settings": {}
+}
