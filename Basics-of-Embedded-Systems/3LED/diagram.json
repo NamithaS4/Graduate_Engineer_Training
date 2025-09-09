@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "author": "Nami 2610",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": -99.6, "left": 80.6, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -99.6,
+      "left": 138.2,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": -99.6,
+      "left": 205.4,
+      "attrs": { "color": "red" }
+    }
+  ],
+  "connections": [
+    [ "led2:C", "uno:GND.1", "green", [ "v67.2", "h-38" ] ],
+    [ "led3:C", "uno:GND.1", "green", [ "v67.2", "h-105.2" ] ],
+    [ "led1:C", "uno:GND.1", "green", [ "v67.2", "h19.6" ] ],
+    [ "led3:A", "uno:2", "green", [ "v67.2", "h9.6" ] ],
+    [ "led2:A", "uno:5", "green", [ "v67.2", "h48" ] ],
+    [ "led1:A", "uno:7", "green", [ "v67.2", "h86.4" ] ]
+  ],
+  "dependencies": {}
+}
