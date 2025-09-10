@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "author": "Nami 2610",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 87, "left": -0.6, "attrs": {} },
+    { "type": "wokwi-lcd1602", "id": "lcd1", "top": -121.37, "left": -3.2, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 32.75,
+      "left": 220.8,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    [ "lcd1:K", "uno:GND.1", "black", [ "v0" ] ],
+    [ "lcd1:VSS", "uno:GND.1", "black", [ "v86.4", "h96" ] ],
+    [ "lcd1:RW", "uno:GND.1", "black", [ "v86.4", "h57.5" ] ],
+    [ "lcd1:A", "r1:1", "green", [ "v0", "h57.5" ] ],
+    [ "r1:2", "uno:5V", "green", [ "v268.8", "h-106.8" ] ],
+    [ "lcd1:D7", "uno:7", "#8f4814", [ "v86.4", "h48.3" ] ],
+    [ "lcd1:D6", "uno:8", "orange", [ "v86.4", "h38.6" ] ],
+    [ "lcd1:D5", "uno:9", "blue", [ "v86.4", "h28.9" ] ],
+    [ "lcd1:D4", "uno:10", "purple", [ "v86.4", "h38.4" ] ],
+    [ "lcd1:E", "uno:11", "limegreen", [ "v86.4", "h76.8" ] ],
+    [ "lcd1:RS", "uno:12", "yellow", [ "v86.4", "h86.7" ] ],
+    [ "lcd1:VDD", "uno:5V", "red", [ "v268.8", "h115.3" ] ]
+  ],
+  "dependencies": {}
+}
