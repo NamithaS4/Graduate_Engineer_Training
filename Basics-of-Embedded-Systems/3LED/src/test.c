@@ -1,3 +1,5 @@
+#include <Arduino.h>
+
 const int ledPin2 = 2;  // LED on pin 2  (PORTD, bit 2)
 const int ledPin5 = 5;  // LED on pin 5  (PORTD, bit 5)
 const int ledPin7 = 7;  // LED on pin 7  (PORTD, bit 7)
