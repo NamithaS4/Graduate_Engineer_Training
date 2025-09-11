@@ -33,6 +33,7 @@ INSERT INTO users(userID, emailID, names) VALUES
 (4, 'vimalpan@gmail.com', 'JaiSai'),
 (5, 'ghostlaugh@gmail.com', 'snamitha');
 
+
 INSERT INTO books (ProductID, Title, Price) VALUES
 (101, 'MSSQL', 100.00),
 (102, 'Half Girlfriend', 699.00),
@@ -48,7 +49,8 @@ INSERT INTO orders(order_no, userID, ProductID) VALUES
 (405, 3, 104),
 (406, 4, 102),
 (407, 5, 105),
-(408, 3, 102);
+(408, 5, 102);
+
 
 SELECT * FROM users
 
@@ -56,21 +58,81 @@ SELECT * FROM books
 
 SELECT * FROM orders
 
---Create inner join
+-- Find all the books all the users and all the order
 
 SELECT  o.order_no, u.userID, b.ProductID, u.emailID, u.names, b.Title, b.Price
 FROM orders o
 INNER JOIN users u ON o.userID = u.userID
 INNER JOIN books b ON o.ProductID = b.ProductID;
 
-SELECT  o.order_no, u.userID, b.ProductID, u.emailID, u.names, b.Title, b.Price
-FROM orders o
-INNER JOIN users u ON o.userID = u.userID
-INNER JOIN books b ON o.ProductID = b.ProductID WHERE b.Title = 'Black Magic';
+--Find all orders
 
---Used subquery in inner join
-SELECT o.order_no, u.userID, b.ProductID, u.emailID, u.names, b.Title, b.Price
+SELECT * FROM orders
+
+
+
+
+-- Find particular user who has ordered these books
+ select *  from  users u1 
+		inner join orders u2 on u1.userID=u2.userID
+			inner join books u3 on u3.productID= u2.ProductID 
+				where
+					u3.title in ('black magic','HALF girlfriend')
+
+
+--Find books a user has ordered
+SELECT b.Title, b.Price
 FROM orders o
 INNER JOIN users u ON o.userID = u.userID
 INNER JOIN books b ON o.ProductID = b.ProductID
-WHERE b.Price = (SELECT MAX(Price) FROM books);
+WHERE u.names = 'snamitha';
+
+
+--Find total price of books a user has ordered
+
+SELECT u.names, SUM(b.Price) AS total_price
+FROM orders o
+INNER JOIN users u ON o.userID = u.userID
+INNER JOIN books b ON o.ProductID = b.ProductID
+WHERE u.names = 'snamitha'
+GROUP BY u.names;
+
+--Find the most valuable user
+
+SELECT u.userID, u.names, SUM(b.Price) AS total_spent
+FROM orders o
+INNER JOIN users u ON o.userID = u.userID
+INNER JOIN books b ON o.ProductID = b.ProductID
+GROUP BY u.userID, u.names
+ORDER BY total_spent DESC
+OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY;
+
+
+--Find the range of books from high to low (price order)
+
+SELECT Title, Price
+FROM books
+ORDER BY Price DESC;
+
+--Find the Highest price book
+
+SELECT Title, Price
+FROM books
+WHERE Price = (SELECT MAX(Price) FROM books);
+
+--Find the cheapest book
+
+SELECT Title, Price
+FROM books
+WHERE Price = (SELECT MIN(Price) FROM books);
+
+--Find newly added books
+SELECT TOP 1 *
+FROM books
+ORDER BY ProductID DESC;
+
+
+
+
+
+
