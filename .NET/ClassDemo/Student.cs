@@ -31,7 +31,7 @@ namespace ClassDemo
             Console.WriteLine($"Contact num of the student: {contactNo}");
             Console.WriteLine($"EmailID of the student: {emailID}");
         }
-        Student(int studentID, string name, int age, string contactNo, string emailID)
+        public Student(int studentID, string name, int age, string contactNo, string emailID)
         {
             this.studentID = studentID;
             this.name = name;
